@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rank Key Configuration</title>
+    <link rel="stylesheet" href="assets/common.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏆 Rank Key Configuration</h1>
+            <p>Customize how your ranked information is displayed</p>
+        </div>
+
+        <div class="section compact">
+            <h2>🎯 Display Settings</h2>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showLP" checked>
+                    <label for="showLP">Show League Points (LP)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showWinRate" checked>
+                    <label for="showWinRate">Show win rate percentage</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showRankIcon" checked>
+                    <label for="showRankIcon">Show rank emblem/icon</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="displayMode">Information Display Mode</label>
+                <select id="displayMode">
+                    <option value="full" selected>Full (Rank + LP + Win Rate)</option>
+                    <option value="minimal">Minimal (Rank only)</option>
+                    <option value="compact">Compact (Rank + LP)</option>
+                    <option value="detailed">Detailed (All info + games played)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section compact">
+            <h2>⚙️ Behavior Settings</h2>
+            
+            <div class="form-group">
+                <label for="updateTrigger">Update Trigger</label>
+                <select id="updateTrigger">
+                    <option value="gameEnd" selected>After ranked games</option>
+                    <option value="manual">Manual refresh only</option>
+                    <option value="periodic">Periodic (every 5 minutes)</option>
+                    <option value="clientFocus">When League client gains focus</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="clickAction">Left Click Action</label>
+                <select id="clickAction">
+                    <option value="refresh" selected>Refresh rank data</option>
+                    <option value="rankedHistory">Open ranked match history</option>
+                    <option value="leagueProfile">Open League profile</option>
+                    <option value="none">No action</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rightClickAction">Right Click Action</label>
+                <select id="rightClickAction">
+                    <option value="config" selected>Open configuration</option>
+                    <option value="quickRefresh">Quick refresh</option>
+                    <option value="copyRank">Copy rank to clipboard</option>
+                    <option value="none">No action</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section compact">
+            <h2>🎨 Appearance</h2>
+            
+            <div class="form-group">
+                <label for="colorScheme">Color Theme</label>
+                <select id="colorScheme">
+                    <option value="default" selected>Default (Gold/Bronze theme)</option>
+                    <option value="ranked">Rank-based colors</option>
+                    <option value="minimal">Minimal (Grayscale)</option>
+                    <option value="vivid">Vivid colors</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fontSize">Text Size</label>
+                <select id="fontSize">
+                    <option value="small">Small</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="large">Large</option>
+                    <option value="extraLarge">Extra Large</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="animateChanges" checked>
+                    <label for="animateChanges">Animate rank changes</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showPromoHelper">
+                    <label for="showPromoHelper">Show promotion series indicator</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section compact">
+            <h2>🔒 Privacy & Streaming</h2>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="hideWhenStreaming">
+                    <label for="hideWhenStreaming">Hide rank when streaming software is detected</label>
+                </div>
+            </div>
+
+            <div class="form-group" id="fallbackGroup" style="display: none;">
+                <label for="fallbackDisplay">Fallback Display Text</label>
+                <input type="text" id="fallbackDisplay" placeholder="e.g., 'Ranked Player'" value="Ranked">
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="blurSensitiveInfo">
+                    <label for="blurSensitiveInfo">Blur LP and win rate (keep rank visible)</label>
+                </div>
+            </div>
+
+            <div class="info-box tip">
+                <p><strong>Tip:</strong> Privacy settings help protect your information during streams or recordings while still showing basic rank information.</p>
+            </div>
+        </div>
+
+        <div class="section compact">
+            <h2>🔔 Notifications</h2>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notifyPromotion" checked>
+                    <label for="notifyPromotion">Notify on promotion/demotion</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notifyPromoSeries">
+                    <label for="notifyPromoSeries">Notify when entering promotion series</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="notifySeasonEnd">
+                    <label for="notifySeasonEnd">Notify when season is ending (30 days)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notificationSound">Notification Sound</label>
+                <select id="notificationSound">
+                    <option value="none">No sound</option>
+                    <option value="default" selected>Default notification</option>
+                    <option value="victory">Victory sound</option>
+                    <option value="levelup">Level up sound</option>
+                    <option value="custom">Custom sound file</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>👁️ Live Preview</h2>
+            <p class="mb-2" style="color: var(--lol-gray-light); font-size: 12px;">
+                Preview of your rank key with current settings
+            </p>
+            
+            <div class="preview">
+                <div class="preview-key" id="previewKey">
+                    <div class="preview-icon" id="previewIcon" style="background: linear-gradient(45deg, #cd7f32, #ffd700);"></div>
+                    <div id="previewText">Gold IV</div>
+                    <div id="previewSubtext" style="font-size: 8px; color: var(--lol-gray-light);">67 LP</div>
+                    <div id="previewWinRate" style="font-size: 7px; color: var(--lol-blue-light);">65% WR</div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-center gap-2 mt-3">
+                <button class="button small secondary" onclick="simulateRankChange()">Simulate Rank Change</button>
+                <button class="button small" onclick="refreshPreview()">Refresh Preview</button>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button class="button large" onclick="saveSettings()">💾 Save Configuration</button>
+        </div>
+    </div>
+
+    <script src="assets/common.js"></script>
+    <script>
+        // Page-specific functionality
+        const keyType = 'rank';
+        let previewSettings = {};
+
+        // Update preview when any setting changes
+        function updatePreview() {
+            previewSettings = FormUtils.gatherSettings();
+            
+            const previewKey = document.getElementById('previewKey');
+            const previewText = document.getElementById('previewText');
+            const previewSubtext = document.getElementById('previewSubtext');
+            const previewWinRate = document.getElementById('previewWinRate');
+            const previewIcon = document.getElementById('previewIcon');
+            
+            // Update display mode
+            switch (previewSettings.displayMode) {
+                case 'minimal':
+                    previewText.textContent = 'Gold IV';
+                    previewSubtext.style.display = 'none';
+                    previewWinRate.style.display = 'none';
+                    break;
+                case 'compact':
+                    previewText.textContent = 'Gold IV';
+                    previewSubtext.style.display = previewSettings.showLP ? 'block' : 'none';
+                    previewSubtext.textContent = '67 LP';
+                    previewWinRate.style.display = 'none';
+                    break;
+                case 'full':
+                    previewText.textContent = 'Gold IV';
+                    previewSubtext.style.display = previewSettings.showLP ? 'block' : 'none';
+                    previewSubtext.textContent = '67 LP';
+                    previewWinRate.style.display = previewSettings.showWinRate ? 'block' : 'none';
+                    previewWinRate.textContent = '65% WR';
+                    break;
+                case 'detailed':
+                    previewText.textContent = 'Gold IV';
+                    previewSubtext.style.display = 'block';
+                    previewSubtext.textContent = '67 LP';
+                    previewWinRate.style.display = 'block';
+                    previewWinRate.textContent = '65% WR (23W/12L)';
+                    break;
+            }
+            
+            // Update color scheme
+            updateColorScheme();
+            
+            // Update font size
+            const fontSizes = {
+                small: { main: '9px', sub: '7px', wr: '6px' },
+                medium: { main: '10px', sub: '8px', wr: '7px' },
+                large: { main: '11px', sub: '9px', wr: '8px' },
+                extraLarge: { main: '12px', sub: '10px', wr: '9px' }
+            };
+            const sizes = fontSizes[previewSettings.fontSize] || fontSizes.medium;
+            previewText.style.fontSize = sizes.main;
+            previewSubtext.style.fontSize = sizes.sub;
+            previewWinRate.style.fontSize = sizes.wr;
+            
+            // Show/hide icon
+            previewIcon.style.display = previewSettings.showRankIcon ? 'block' : 'none';
+            
+            // Handle privacy settings
+            if (previewSettings.hideWhenStreaming) {
+                previewText.textContent = previewSettings.fallbackDisplay || 'Ranked';
+                previewSubtext.style.display = 'none';
+                previewWinRate.style.display = 'none';
+            }
+            
+            // Handle blur effect
+            if (previewSettings.blurSensitiveInfo && !previewSettings.hideWhenStreaming) {
+                previewSubtext.style.filter = 'blur(2px)';
+                previewWinRate.style.filter = 'blur(2px)';
+            } else {
+                previewSubtext.style.filter = 'none';
+                previewWinRate.style.filter = 'none';
+            }
+            
+            // Add animation class if enabled
+            if (previewSettings.animateChanges) {
+                previewKey.style.transition = 'all 0.3s ease';
+            } else {
+                previewKey.style.transition = 'none';
+            }
+        }
+
+        function updateColorScheme() {
+            const previewKey = document.getElementById('previewKey');
+            const previewIcon = document.getElementById('previewIcon');
+            
+            switch (previewSettings.colorScheme) {
+                case 'ranked':
+                    // Gold rank colors
+                    previewKey.style.background = 'linear-gradient(145deg, #cd7f32, #ffd700)';
+                    previewKey.style.borderColor = '#ffd700';
+                    previewIcon.style.background = 'linear-gradient(45deg, #cd7f32, #ffd700)';
+                    break;
+                case 'minimal':
+                    previewKey.style.background = 'linear-gradient(145deg, #666, #999)';
+                    previewKey.style.borderColor = '#999';
+                    previewIcon.style.background = '#777';
+                    break;
+                case 'vivid':
+                    previewKey.style.background = 'linear-gradient(145deg, #ff6b35, #f7931e)';
+                    previewKey.style.borderColor = '#f7931e';
+                    previewIcon.style.background = 'linear-gradient(45deg, #ff6b35, #f7931e)';
+                    break;
+                default: // default
+                    previewKey.style.background = 'linear-gradient(145deg, var(--lol-gold-dark), var(--lol-brown))';
+                    previewKey.style.borderColor = 'var(--lol-brown-light)';
+                    previewIcon.style.background = 'var(--lol-gold)';
+            }
+        }
+
+        function simulateRankChange() {
+            const previewKey = document.getElementById('previewKey');
+            const previewText = document.getElementById('previewText');
+            const previewSubtext = document.getElementById('previewSubtext');
+            
+            // Add animation
+            previewKey.style.transform = 'scale(1.1)';
+            previewKey.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.6)';
+            
+            // Simulate promotion
+            setTimeout(() => {
+                previewText.textContent = 'Gold III';
+                previewSubtext.textContent = '0 LP';
+                StatusManager.success('🎉 Rank updated! Promoted to Gold III');
+            }, 300);
+            
+            // Reset animation
+            setTimeout(() => {
+                previewKey.style.transform = 'scale(1)';
+                previewKey.style.boxShadow = 'none';
+            }, 600);
+        }
+
+        function refreshPreview() {
+            StatusManager.info('Refreshing preview...');
+            updatePreview();
+        }
+
+        function saveSettings() {
+            try {
+                const settings = FormUtils.gatherSettings();
+                PluginAPI.saveKeySettings(keyType, settings);
+                StatusManager.success('✅ Rank key configuration saved successfully!');
+            } catch (error) {
+                StatusManager.error('❌ Failed to save configuration: ' + error.message);
+            }
+        }
+
+        function loadSettings() {
+            const settings = PluginAPI.getKeySettings(keyType);
+            
+            // Set defaults
+            const defaults = {
+                showLP: true,
+                showWinRate: true,
+                showRankIcon: true,
+                displayMode: 'full',
+                updateTrigger: 'gameEnd',
+                clickAction: 'refresh',
+                rightClickAction: 'config',
+                colorScheme: 'default',
+                fontSize: 'medium',
+                animateChanges: true,
+                showPromoHelper: false,
+                hideWhenStreaming: false,
+                fallbackDisplay: 'Ranked',
+                blurSensitiveInfo: false,
+                notifyPromotion: true,
+                notifyPromoSeries: false,
+                notifySeasonEnd: false,
+                notificationSound: 'default'
+            };
+            
+            const mergedSettings = Utils.deepMerge(defaults, settings);
+            FormUtils.loadSettings(mergedSettings);
+            updatePreview();
+        }
+
+        // Handle privacy settings visibility
+        document.getElementById('hideWhenStreaming').addEventListener('change', function() {
+            const fallbackGroup = document.getElementById('fallbackGroup');
+            fallbackGroup.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // Add change listeners
+        FormUtils.addChangeListeners(Utils.debounce(updatePreview, 100));
+
+        // Initialize when page loads
+        window.addEventListener('load', function() {
+            loadSettings();
+            StatusManager.info('Rank key configuration loaded. Make changes to see live preview!');
+        });
+    </script>
+</body>
+</html> 

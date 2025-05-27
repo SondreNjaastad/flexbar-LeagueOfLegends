@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summoner Key Configuration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #c89b3c;
+            margin-bottom: 5px;
+            font-size: 20px;
+        }
+        
+        .section {
+            background: #463714;
+            border: 1px solid #c8aa6e;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .section h2 {
+            color: #f0e6d2;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .form-group {
+            margin-bottom: 12px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            color: #f0e6d2;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 6px 10px;
+            background: #1e2328;
+            border: 1px solid #463714;
+            border-radius: 4px;
+            color: #f0e6d2;
+            font-size: 13px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .button {
+            background: #c89b3c;
+            color: #1e2328;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+        }
+        
+        .button:hover {
+            background: #f0e6d2;
+        }
+        
+        .preview {
+            background: #1e2328;
+            border: 1px solid #463714;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .preview-key {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #463714, #785a28);
+            border: 2px solid #c8aa6e;
+            border-radius: 8px;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #f0e6d2;
+            font-size: 10px;
+            font-weight: 600;
+            margin: 0 auto;
+        }
+        
+        .preview-icon {
+            width: 24px;
+            height: 24px;
+            background: #c89b3c;
+            border-radius: 50%;
+            margin-bottom: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Summoner Key Configuration</h1>
+    </div>
+
+    <div class="section">
+        <h2>Display Options</h2>
+        
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="showLevel" checked>
+                <label for="showLevel">Show summoner level</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="showIcon" checked>
+                <label for="showIcon">Show summoner icon</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="showStatus" checked>
+                <label for="showStatus">Show online status</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="textSize">Text Size</label>
+            <select id="textSize">
+                <option value="small">Small</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Interaction Settings</h2>
+        
+        <div class="form-group">
+            <label for="clickAction">Click Action</label>
+            <select id="clickAction">
+                <option value="refresh" selected>Refresh summoner data</option>
+                <option value="profile">Open profile in League client</option>
+                <option value="none">No action</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="showTooltip" checked>
+                <label for="showTooltip">Show detailed tooltip on hover</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Privacy Options</h2>
+        
+        <div class="form-group">
+            <div class="checkbox-group">
+                <input type="checkbox" id="hideWhenStreaming">
+                <label for="hideWhenStreaming">Hide summoner name when OBS is running</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="fallbackText">Fallback text (when hidden)</label>
+            <input type="text" id="fallbackText" placeholder="e.g., 'Summoner'" value="Player">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Preview</h2>
+        <p style="color: #cdbe91; font-size: 12px; margin-bottom: 10px;">Live preview of your summoner key</p>
+        
+        <div class="preview">
+            <div class="preview-key" id="previewKey">
+                <div class="preview-icon"></div>
+                <div id="previewText">RiotPlayer</div>
+                <div id="previewLevel" style="font-size: 8px;">Lv.127</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button class="button" onclick="saveSettings()">Save Configuration</button>
+    </div>
+
+    <script>
+        // Update preview when settings change
+        document.addEventListener('change', updatePreview);
+        document.addEventListener('input', updatePreview);
+
+        function updatePreview() {
+            const showLevel = document.getElementById('showLevel').checked;
+            const showIcon = document.getElementById('showIcon').checked;
+            const textSize = document.getElementById('textSize').value;
+            const hideWhenStreaming = document.getElementById('hideWhenStreaming').checked;
+            const fallbackText = document.getElementById('fallbackText').value || 'Player';
+            
+            const previewKey = document.getElementById('previewKey');
+            const previewText = document.getElementById('previewText');
+            const previewLevel = document.getElementById('previewLevel');
+            const previewIcon = previewKey.querySelector('.preview-icon');
+            
+            // Update text size
+            const sizes = { small: '9px', medium: '10px', large: '11px' };
+            previewText.style.fontSize = sizes[textSize];
+            
+            // Show/hide elements
+            previewLevel.style.display = showLevel ? 'block' : 'none';
+            previewIcon.style.display = showIcon ? 'block' : 'none';
+            
+            // Update text based on privacy settings
+            previewText.textContent = hideWhenStreaming ? fallbackText : 'RiotPlayer';
+        }
+
+        function saveSettings() {
+            const settings = {
+                showLevel: document.getElementById('showLevel').checked,
+                showIcon: document.getElementById('showIcon').checked,
+                showStatus: document.getElementById('showStatus').checked,
+                textSize: document.getElementById('textSize').value,
+                clickAction: document.getElementById('clickAction').value,
+                showTooltip: document.getElementById('showTooltip').checked,
+                hideWhenStreaming: document.getElementById('hideWhenStreaming').checked,
+                fallbackText: document.getElementById('fallbackText').value
+            };
+
+            try {
+                window.pluginApi?.saveKeySettings('summoner', settings);
+                alert('Summoner key configuration saved!');
+            } catch (error) {
+                alert('Failed to save settings: ' + error.message);
+            }
+        }
+
+        function loadSettings() {
+            const settings = window.pluginApi?.getKeySettings('summoner') || {};
+            
+            document.getElementById('showLevel').checked = settings.showLevel !== false;
+            document.getElementById('showIcon').checked = settings.showIcon !== false;
+            document.getElementById('showStatus').checked = settings.showStatus !== false;
+            document.getElementById('textSize').value = settings.textSize || 'medium';
+            document.getElementById('clickAction').value = settings.clickAction || 'refresh';
+            document.getElementById('showTooltip').checked = settings.showTooltip !== false;
+            document.getElementById('hideWhenStreaming').checked = settings.hideWhenStreaming || false;
+            document.getElementById('fallbackText').value = settings.fallbackText || 'Player';
+            
+            updatePreview();
+        }
+
+        // Load settings when page loads
+        window.addEventListener('load', loadSettings);
+        
+        // Initial preview update
+        updatePreview();
+    </script>
+</body>
+</html> 

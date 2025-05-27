@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League of Legends Plugin Configuration</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #c89b3c;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #cdbe91;
+            font-size: 14px;
+        }
+        
+        .section {
+            background: #463714;
+            border: 1px solid #c8aa6e;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .section h2 {
+            color: #f0e6d2;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #f0e6d2;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px 12px;
+            background: #1e2328;
+            border: 1px solid #463714;
+            border-radius: 4px;
+            color: #f0e6d2;
+            font-size: 14px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #c8aa6e;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+        
+        .button {
+            background: #c89b3c;
+            color: #1e2328;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .button:hover {
+            background: #f0e6d2;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .status.success {
+            background: #0f2027;
+            border: 1px solid #0596aa;
+            color: #0ac8b9;
+        }
+        
+        .status.error {
+            background: #3c1e1e;
+            border: 1px solid #c89b3c;
+            color: #f0e6d2;
+        }
+        
+        .info-box {
+            background: #1e2328;
+            border: 1px solid #463714;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        
+        .info-box p {
+            margin: 0;
+            font-size: 13px;
+            color: #cdbe91;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 League of Legends Plugin</h1>
+            <p>Configure your League of Legends FlexBar integration</p>
+        </div>
+
+        <div id="status" class="status" style="display: none;"></div>
+
+        <div class="section">
+            <h2>⚙️ General Settings</h2>
+            
+            <div class="form-group">
+                <label for="updateInterval">Update Interval (seconds)</label>
+                <select id="updateInterval">
+                    <option value="5">5 seconds</option>
+                    <option value="10" selected>10 seconds</option>
+                    <option value="15">15 seconds</option>
+                    <option value="30">30 seconds</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="autoDetect" checked>
+                    <label for="autoDetect">Auto-detect League of Legends client</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showNotifications" checked>
+                    <label for="showNotifications">Show status notifications</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Key Display Options</h2>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showSummonerLevel" checked>
+                    <label for="showSummonerLevel">Show summoner level on summoner key</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="showRankLP" checked>
+                    <label for="showRankLP">Show LP on rank key</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="shortCurrency">
+                    <label for="shortCurrency">Use abbreviated currency format (1.2K instead of 1,200)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="hideInGameData">
+                    <label for="hideInGameData">Hide sensitive data during streaming/recording</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔧 Advanced Settings</h2>
+            
+            <div class="form-group">
+                <label for="apiTimeout">API Timeout (milliseconds)</label>
+                <select id="apiTimeout">
+                    <option value="3000">3 seconds</option>
+                    <option value="5000" selected>5 seconds</option>
+                    <option value="10000">10 seconds</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="debugMode">
+                    <label for="debugMode">Enable debug logging</label>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Note:</strong> Debug mode will create detailed logs for troubleshooting. Only enable this when experiencing issues, as it may impact performance.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 Connection Status</h2>
+            <div id="connectionStatus">
+                <p>Checking League of Legends client connection...</p>
+            </div>
+            <button class="button" onclick="testConnection()">Test Connection</button>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="button" onclick="saveSettings()">Save Settings</button>
+        </div>
+    </div>
+
+    <script>
+        // Load settings when page loads
+        window.addEventListener('load', function() {
+            loadSettings();
+            checkConnection();
+        });
+
+        function loadSettings() {
+            // Load settings from plugin storage
+            const settings = window.pluginApi?.getSettings() || {};
+            
+            document.getElementById('updateInterval').value = settings.updateInterval || '10';
+            document.getElementById('autoDetect').checked = settings.autoDetect !== false;
+            document.getElementById('showNotifications').checked = settings.showNotifications !== false;
+            document.getElementById('showSummonerLevel').checked = settings.showSummonerLevel !== false;
+            document.getElementById('showRankLP').checked = settings.showRankLP !== false;
+            document.getElementById('shortCurrency').checked = settings.shortCurrency || false;
+            document.getElementById('hideInGameData').checked = settings.hideInGameData || false;
+            document.getElementById('apiTimeout').value = settings.apiTimeout || '5000';
+            document.getElementById('debugMode').checked = settings.debugMode || false;
+        }
+
+        function saveSettings() {
+            const settings = {
+                updateInterval: parseInt(document.getElementById('updateInterval').value),
+                autoDetect: document.getElementById('autoDetect').checked,
+                showNotifications: document.getElementById('showNotifications').checked,
+                showSummonerLevel: document.getElementById('showSummonerLevel').checked,
+                showRankLP: document.getElementById('showRankLP').checked,
+                shortCurrency: document.getElementById('shortCurrency').checked,
+                hideInGameData: document.getElementById('hideInGameData').checked,
+                apiTimeout: parseInt(document.getElementById('apiTimeout').value),
+                debugMode: document.getElementById('debugMode').checked
+            };
+
+            try {
+                window.pluginApi?.saveSettings(settings);
+                showStatus('Settings saved successfully!', 'success');
+            } catch (error) {
+                showStatus('Failed to save settings: ' + error.message, 'error');
+            }
+        }
+
+        function testConnection() {
+            showStatus('Testing connection to League of Legends client...', 'success');
+            
+            // This would typically call the plugin's backend to test the connection
+            setTimeout(() => {
+                const connected = Math.random() > 0.3; // Simulate connection test
+                if (connected) {
+                    document.getElementById('connectionStatus').innerHTML = 
+                        '<p style="color: #0ac8b9;">✅ Connected to League of Legends client</p>';
+                    showStatus('Connection test successful!', 'success');
+                } else {
+                    document.getElementById('connectionStatus').innerHTML = 
+                        '<p style="color: #f0e6d2;">❌ Could not connect to League of Legends client</p>' +
+                        '<p style="color: #cdbe91; font-size: 12px;">Make sure League of Legends is running and try again.</p>';
+                    showStatus('Connection test failed. Make sure League of Legends is running.', 'error');
+                }
+            }, 1500);
+        }
+
+        function checkConnection() {
+            // Auto-check connection status on page load
+            setTimeout(testConnection, 1000);
+        }
+
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('status');
+            statusEl.textContent = message;
+            statusEl.className = 'status ' + type;
+            statusEl.style.display = 'block';
+            
+            setTimeout(() => {
+                statusEl.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html> 

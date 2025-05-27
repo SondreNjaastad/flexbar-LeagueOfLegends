@@ -7,7 +7,7 @@
     "description": "League of Legends Integration for FlexBar",
     "repo": "https://github.com/sondrenjaastad/FlexBar-Plugin-LeagueOfLegends",
     "sdk": {
-        "version": "1.0.1"
+        "version": "1.0.2"
     },
     "software": {
         "minimumVersion": "1.1.0"
