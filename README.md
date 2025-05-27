@@ -84,35 +84,6 @@ This plugin offers several interactive keys that display live information from L
 - Updates every few seconds during matches
 - Shows placeholder data when not in game
 
-## 🔧 Troubleshooting
-
-### Common Issues
-
-**❌ Keys show "No Data" or "Offline"**
-- Ensure League of Legends client is running
-- Check that you're logged into your account
-- Restart FlexDesigner if issue persists
-
-**❌ Live game data not updating**
-- Verify you're in an active game (not spectating)
-- Check internet connection
-- Game data may take 30-60 seconds to appear after game start
-
-**❌ Rank information incorrect**
-- Rank data updates after games complete
-- May take several minutes to reflect recent changes
-- Try clicking the rank key to manually refresh
-
-**❌ Plugin not appearing in FlexDesigner**
-- Ensure FlexDesigner is version 1.1.0+
-- Check that plugin file installed correctly
-- Restart FlexDesigner application
-
-### Performance Tips
-- Close unnecessary applications while gaming
-- Ensure stable internet connection for real-time updates
-- Plugin uses minimal system resources
-
 ## 🎨 Customization
 
 ### Visual Options
@@ -123,7 +94,6 @@ This plugin offers several interactive keys that display live information from L
 ### Layout Suggestions
 - Place summoner info keys in a permanent area
 - Group live game stats together for easy viewing
-- Position wallet key near other utility information
 
 ## 🔄 Updates
 
@@ -136,9 +106,7 @@ The plugin automatically checks for updates through FlexDesigner. When updates a
 ## ⚠️ Privacy & Data
 
 - Plugin only reads publicly available League of Legends data
-- No personal information is stored or transmitted
 - Data is retrieved directly from Riot Games' official APIs
-- All communication is encrypted and secure
 
 ## 🆘 Support
 
@@ -153,7 +121,6 @@ If you encounter issues:
 
 - **Current Version**: 1.0.0
 - **Last Updated**: Check plugin details in FlexDesigner
-- **Compatibility**: League of Legends Season 14+
 
 ## 🎯 Tips for Best Experience
 
