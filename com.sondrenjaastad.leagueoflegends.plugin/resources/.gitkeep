@@ -1,0 +1,2 @@
+# This file ensures the resources directory is tracked by git
+# FlexDesigner plugins require a resources folder to be present 
