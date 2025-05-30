@@ -1,13 +1,13 @@
 {
-    "name": "League of Legends Integration",
+    "name": "League of Legends",
     "uuid": "com.sondrenjaastad.leagueoflegends",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "author": "sondrenjaastad",
     "entry": "backend/plugin.cjs",
-    "description": "League of Legends Integration for FlexBar",
-    "repo": "https://github.com/sondrenjaastad/FlexBar-Plugin-LeagueOfLegends",
+    "description": "League of Legends Plugin for the FlexBar",
+    "repo": "https://github.com/SondreNjaastad/flexbar-LeagueOfLegends",
     "sdk": {
-        "version": "1.0.4"
+        "version": "1.0.0"
     },
     "software": {
         "minimumVersion": "1.1.0"
