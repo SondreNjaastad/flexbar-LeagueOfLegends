@@ -19,7 +19,7 @@ This plugin offers several interactive keys that display live information from L
 
 ### 💰 **Wallet Key**
 - Displays current Blue Essence (BE)
-- Shows Orange Essence (OE) 
+- Shows Riot Points (RP) 
 - Real-time currency tracking
 - Updates when spending or earning currency
 
@@ -38,11 +38,10 @@ This plugin offers several interactive keys that display live information from L
 
 ## 🚀 Installation
 
-1. Download the latest plugin file: `com.sondrenjaastad.leagueoflegends.flexplugin`
-2. Open FlexDesigner
-3. Go to **Settings** → **Plugins**
-4. Click **Install Plugin** and select the downloaded file
-5. The plugin will be installed automatically
+1. Open FlexDesigner
+2. Go to **+** → **FLEXGATE** → Search for **League of Legends**
+3. Click on the download icon
+4. The plugin will be installed automatically
 
 ## ⚙️ Setup
 
@@ -51,9 +50,6 @@ This plugin offers several interactive keys that display live information from L
    - Open FlexDesigner
    - Navigate to the **League of Legends** section in the key library
    - Drag desired keys to your FlexBar layout
-3. **Configure Keys** (if needed):
-   - Right-click any key to access settings
-   - Customize display options and appearance
 
 ## 🎯 Usage
 
@@ -77,31 +73,12 @@ This plugin offers several interactive keys that display live information from L
 **💰 Wallet Key**
 - Updates when purchasing items or champions
 - Click to refresh currency amounts
-- Shows both BE and OE balances
+- Shows both BE and RP balances
 
 **⚔️ Live Game Keys**
 - Only active during live games
 - Updates every few seconds during matches
 - Shows placeholder data when not in game
-
-## 🎨 Customization
-
-### Visual Options
-- Resize keys by dragging corners in FlexDesigner
-- Change key positions by dragging
-- Customize colors and themes through FlexDesigner settings
-
-### Layout Suggestions
-- Place summoner info keys in a permanent area
-- Group live game stats together for easy viewing
-
-## 🔄 Updates
-
-The plugin automatically checks for updates through FlexDesigner. When updates are available:
-
-1. FlexDesigner will notify you
-2. Download and install the updated plugin file
-3. Restart FlexDesigner to apply changes
 
 ## ⚠️ Privacy & Data
 
@@ -116,27 +93,6 @@ If you encounter issues:
 2. **Restart Applications**: Close and reopen both League and FlexDesigner
 3. **Check Updates**: Ensure you're using the latest plugin version
 4. **Community Support**: Visit FlexDesigner community forums
-
-## 📝 Version Information
-
-- **Current Version**: 1.0.0
-- **Last Updated**: Check plugin details in FlexDesigner
-
-## 🎯 Tips for Best Experience
-
-1. **Keep League Client Open**: Plugin works best with League client running
-2. **Stable Internet**: Required for real-time data updates
-3. **Regular Updates**: Keep both FlexDesigner and the plugin updated
-4. **Game Modes**: Most features work in all game modes (SR, ARAM, etc.)
-5. **Multiple Accounts**: Plugin shows data for currently logged-in account
-
-## ⚡ Quick Start Guide
-
-1. **Install** the plugin in FlexDesigner
-2. **Launch** League of Legends
-3. **Add** desired keys to your FlexBar
-4. **Customize** layout and appearance
-5. **Enjoy** real-time League data on your FlexBar!
 
 ---
 
